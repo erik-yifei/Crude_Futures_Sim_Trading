@@ -1,4 +1,4 @@
-# Crude_Futures_Sim_Trading
+# Crude Futures Sim Trading
 
 Welcome to the Crude Oil Simulation Trading Project! This project leverages historical crude oil data to simulate trading strategies based on price movements, inventory levels, and Commitment of Traders (COT) reports. By integrating multiple data sources and applying a scoring system, this simulation aims to provide insights into potential trading opportunities and market sentiment.
 
