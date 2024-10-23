@@ -41,6 +41,15 @@ def process_price_data(df):
     # Step 8: Order the DataFrame from newest to oldest
     df = df.sort_values('Exchange Date', ascending=False).reset_index(drop=True)
 
+    # Alternatively, using numpy's select for better performance on large datasets
+    import numpy as np
+    conditions = [
+        df['Close'] <= 68,
+        (df['Close'] > 68) & (df['Close'] < 70)
+    ]
+    choices = [1, 0.5]
+    df['Price Score'] = np.select(conditions, choices, default=0)
+
     # Step 9: Calculate future weekly profits using shift method
     weeks = [1, 2, 3, 4, 8, 12, 24]
     for week in weeks:
@@ -51,6 +60,7 @@ def process_price_data(df):
         df[f'{week}_Week_Short_Return'] = df['Close'].pct_change(periods=week) * 100
 
     return df
+
 
 # Process the price data
 processed_price = process_price_data(price)
@@ -63,6 +73,6 @@ from tabulate import tabulate
 print(tabulate(processed_price.head(), headers='keys', tablefmt='psql'))
 
 # Save the processed DataFrame to a new CSV file
-processed_price.to_csv('price_new.csv', index=False)
+processed_price.to_csv('processed_price.csv', index=False)
 
-print("Processed data has been saved to 'price_new.csv'.")
+print("Processed data has been saved to 'processed_price.csv'.")

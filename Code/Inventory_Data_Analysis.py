@@ -128,6 +128,13 @@ def process_inventory_data(df):
 
     return df
 
+# Used to return processed inventory data 
+def inventory_redacted(df):
+    selected_columns = ['Year', 'Week_Number', 'Absolute Storage Score', 'Delta Inventory Score']
+    redacted_df = df[selected_columns].copy()
+    return redacted_df
+
+
 def plot_inventory_graphs(df):
     # Define the years to plot
     years_to_plot = [df['Year'].max(), df['Year'].max()-1]  # 2024 and 2023
@@ -198,9 +205,10 @@ inventory = pd.read_csv('C:Data\Inventory.csv')
 
 # Process the inventory data
 processed_inventory = process_inventory_data(inventory)
+processed_inventory_clean = inventory_redacted(processed_inventory)
 
-plot_inventory_graphs(processed_inventory)
+# plot_inventory_graphs(processed_inventory)
 
 # Optionally, save the processed DataFrame to CSV
-processed_inventory.to_csv('inventory_processed.csv', index=False)
+processed_inventory_clean.to_csv('processed_inventory_clean.csv', index=False)
 print("Processed data has been saved to 'inventory_processed.csv'.")

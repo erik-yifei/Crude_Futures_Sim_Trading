@@ -133,22 +133,12 @@ def process_cot_data(df):
     
     return df
 
-# Usage Example:
-# Assuming you have a CSV file named 'cot_data.csv' located at 'C:\\Data\\cot_data.csv'
-# Replace the path with your actual file path.
 
-# Load the COT data
-cot_data = pd.read_csv('C:Data\COT.csv')
-
-# Process the COT data
-processed_cot = process_cot_data(cot_data)
-
-# Display the first few rows of the processed DataFrame
-print(processed_cot.head())
-
-# Optionally, save the processed data to a new CSV file
-# processed_cot.to_csv('cot_processed.csv', index=False)
-# print("Processed COT data has been saved to 'cot_processed.csv'.")
+# Used to return processed inventory data 
+def cot_redacted(df):
+    selected_columns = ['Year', 'Week_Number', 'Bullish_Bearish_Score', 'Delta_Score']
+    redacted_df = df[selected_columns].copy()
+    return redacted_df
 
 
 # Plotting - Need to be refined
@@ -201,3 +191,19 @@ def plot_cot_scores(df):
 # Usage Example:
 # Assuming 'processed_cot' is your processed COT DataFrame
 # plot_cot_scores(processed_cot)
+
+# Load the COT data
+cot_data = pd.read_csv('C:Data\COT.csv')
+
+# Process the COT data
+processed_cot = process_cot_data(cot_data)
+processed_cot_clean = cot_redacted(processed_cot)
+# Display the first few rows of the processed DataFrame
+print(processed_cot.head())
+
+# Optionally, save the processed data to a new CSV file
+processed_cot_clean.to_csv('processed_cot_clean.csv', index=False)
+print("Processed COT data has been saved to 'cot_processed.csv'.")
+
+
+
