@@ -6,7 +6,7 @@ def process_inventory_data(df):
     df['Date'] = df['Date'].astype(str).str.strip().str.replace('"', '')
     
     # Step 2: Parse 'Date' to datetime format
-    df['Date'] = pd.to_datetime(df['Date'], format='%b %d, %Y', errors='coerce')
+    df['Date'] = pd.to_datetime(df['Date'], format='%d-%b-%y', errors='coerce')
     
     # Step 3: Check for parsing errors
     if df['Date'].isna().any():
@@ -136,69 +136,82 @@ def inventory_redacted(df):
 
 
 def plot_inventory_graphs(df):
-    # Define the years to plot
-    years_to_plot = [df['Year'].max(), df['Year'].max()-1]  # 2024 and 2023
-    
-    # Define the average periods
+    """
+    Plots inventory levels for specified years along with 5-year and 10-year averages and their ranges.
+
+    Parameters:
+    - df (pd.DataFrame): Processed Inventory DataFrame containing the following columns:
+        - 'Year', 'Week_Number', 'Ending Stocks Excluding SPR (Thousand Barrels)',
+          '5yr Average Inventory', '5yr Max Inventory', '5yr Min Inventory',
+          '10yr Average Inventory', '10yr Max Inventory', '10yr Min Inventory'
+
+    Returns:
+    - None: Displays two plots for 5-Year and 10-Year averages respectively.
+    """
+
+    # Step 1: Sort the DataFrame by Week_Number in ascending order
+    df = df.sort_values('Week_Number')
+
+    # Step 2: Define the years to plot
+    current_year = df['Year'].max()
+    previous_year = current_year - 1
+    years_to_plot = [current_year, previous_year]
+
+    # Step 3: Define average periods
     avg_periods = {
         '5-Year': {
             'avg': '5yr Average Inventory',
             'max': '5yr Max Inventory',
-            'min': '5yr Min Inventory'
+            'min': '5yr Min Inventory',
+            'color': 'blue'
         },
         '10-Year': {
             'avg': '10yr Average Inventory',
             'max': '10yr Max Inventory',
-            'min': '10yr Min Inventory'
+            'min': '10yr Min Inventory',
+            'color': 'green'
         }
     }
-    
-    # Prepare data for 5-Year Average Graph
-    plt.figure(figsize=(14, 7))
-    
-    # Plot 2024 and 2023 inventory levels
-    for year in years_to_plot:
-        subset = df[df['Year'] == year]
-        plt.plot(subset['Week_Number'], subset['Ending Stocks Excluding SPR (Thousand Barrels)'], label=str(year))
-    
-    # Plot 5-Year Average
-    plt.plot(df['Week_Number'], df['5yr Average Inventory'], label='5-Year Average', linestyle='--', color='blue')
-    
-    # Plot 5-Year Max and Min
-    plt.fill_between(df['Week_Number'], df['5yr Min Inventory'], df['5yr Max Inventory'], color='blue', alpha=0.1, label='5-Year Range')
-    
-    # Configure the plot
-    plt.xlabel('Week Number')
-    plt.ylabel('Ending Stocks Excluding SPR (Thousand Barrels)')
-    plt.title('Crude Oil Inventory Levels: 2024, 2023, and 5-Year Average')
-    plt.legend()
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
-    
-    # Prepare data for 10-Year Average Graph
-    plt.figure(figsize=(14, 7))
-    
-    # Plot 2024 and 2023 inventory levels
-    for year in years_to_plot:
-        subset = df[df['Year'] == year]
-        plt.plot(subset['Week_Number'], subset['Ending Stocks Excluding SPR (Thousand Barrels)'], label=str(year))
-    
-    # Plot 10-Year Average
-    plt.plot(df['Week_Number'], df['10yr Average Inventory'], label='10-Year Average', linestyle='--', color='green')
-    
-    # Plot 10-Year Max and Min
-    plt.fill_between(df['Week_Number'], df['10yr Min Inventory'], df['10yr Max Inventory'], color='green', alpha=0.1, label='10-Year Range')
-    
-    # Configure the plot
-    plt.xlabel('Week Number')
-    plt.ylabel('Ending Stocks Excluding SPR (Thousand Barrels)')
-    plt.title('Crude Oil Inventory Levels: 2024, 2023, and 10-Year Average')
-    plt.legend()
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
 
+    # Function to determine if a column is constant
+    def is_constant(series, tolerance=1e-5):
+        return series.nunique() == 1 or (series.max() - series.min()) < tolerance
+
+    # Step 4: Plot Inventory Levels with Averages and Ranges
+    for period, keys in avg_periods.items():
+        plt.figure(figsize=(14, 7))
+
+        # Plot inventory levels for the specified years
+        for year in years_to_plot:
+            subset = df[df['Year'] == year]
+            plt.plot(subset['Week_Number'], subset['Ending Stocks Excluding SPR (Thousand Barrels)'],
+                     label=f"{year} Inventory", marker='o')
+
+        # Check if Average Inventory is constant
+        avg_constant = is_constant(df[keys['avg']])
+        if avg_constant:
+            avg_value = df[keys['avg']].iloc[0]
+            plt.axhline(y=avg_value, label=f"{period} Average", linestyle='--', color=keys['color'])
+            min_value = df[keys['min']].min()
+            max_value = df[keys['max']].max()
+            plt.axhline(y=min_value, color=keys['color'], alpha=0.1, linestyle='-', label=f"{period} Min Inventory")
+            plt.axhline(y=max_value, color=keys['color'], alpha=0.1, linestyle='-', label=f"{period} Max Inventory")
+        else:
+            # Plot average line
+            plt.plot(df['Week_Number'], df[keys['avg']], label=f"{period} Average",
+                     linestyle='--', color=keys['color'])
+            # Fill between min and max
+            plt.fill_between(df['Week_Number'], df[keys['min']], df[keys['max']],
+                             color=keys['color'], alpha=0.1, label=f"{period} Range")
+
+        # Configure the plot
+        plt.xlabel('Week Number')
+        plt.ylabel('Ending Stocks Excluding SPR (Thousand Barrels)')
+        plt.title(f'Crude Oil Inventory Levels: {current_year}, {previous_year}, and {period} Average')
+        plt.legend()
+        plt.grid(True)
+        plt.tight_layout()
+        plt.show()
 
 # Load the data
 inventory = pd.read_csv('C:Data\Inventory.csv')
@@ -207,7 +220,7 @@ inventory = pd.read_csv('C:Data\Inventory.csv')
 processed_inventory = process_inventory_data(inventory)
 processed_inventory_clean = inventory_redacted(processed_inventory)
 
-# plot_inventory_graphs(processed_inventory)
+plot_inventory_graphs(processed_inventory)
 
 # Optionally, save the processed DataFrame to CSV
 processed_inventory_clean.to_csv('processed_inventory_clean.csv', index=False)

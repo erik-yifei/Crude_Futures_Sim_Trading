@@ -74,5 +74,4 @@ print(tabulate(processed_price.head(), headers='keys', tablefmt='psql'))
 
 # Save the processed DataFrame to a new CSV file
 processed_price.to_csv('processed_price.csv', index=False)
-
 print("Processed data has been saved to 'processed_price.csv'.")
