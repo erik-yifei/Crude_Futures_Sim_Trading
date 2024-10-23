@@ -3,7 +3,24 @@
 Welcome to the Crude Oil Simulation Trading Project! This project leverages historical crude oil data to simulate trading strategies based on price movements, inventory levels, and Commitment of Traders (COT) reports. By integrating multiple data sources and applying a scoring system, this simulation aims to provide insights into potential trading opportunities and market sentiment.
 
 ## 📈 Project Overview
-The Crude Oil Simulation Trading Project is designed to analyze and simulate trading strategies in the crude oil market. By processing and merging data from various sources, the project assigns scores to each trading week, enabling the identification of bullish or bearish market conditions. This comprehensive analysis facilitates informed decision-making for simulated trading scenarios.
+The Crude Oil Simulation Trading Project is designed to implement a discretionary trading strategy based on quantitative analysis on the crude oil futures market. By processing and merging data from various sources, the project assigns scores to each trading week, enabling the identification of bullish or bearish market conditions. This comprehensive analysis facilitates informed decision-making for simulated trading scenarios.
+
+## 🧠 Trading Strategy Used
+Objective:<br>
+Trade WTI Crude Oil Futures directionally with a 1-month (30 days) timeframe.<br>
+
+Key Components:<br>
+1. Cost Curve (Price Support):<br>
+- Utilize price support levels from the cost curve to identify optimal entry and exit points, ensuring trades are placed at strategic price levels.<br>
+
+2. Inventory Levels:<br>
+- Monitor weekly inventory data to assess supply and demand dynamics, using changes in inventory to anticipate potential price movements.<br>
+
+3. CTA Positioning:<br>
+- Analyze Commitment of Traders (COT) data to approximate the positioning of Commodity Trading Advisors (CTAs) or non-commercial traders, gauging market sentiment and crowd behavior to inform trading decisions.<br>
+
+4. Geo-Political Events:<br>
+- Incorporate recent news and geopolitical developments to contextualize market conditions, enhancing the decision-making process by accounting for external factors that may influence crude oil prices.<br>
 
 ## 🛠️ Features
 Data Integration: Combines Price, Inventory, and COT data based on Year and Week_Number.<br>
