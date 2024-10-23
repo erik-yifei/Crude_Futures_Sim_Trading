@@ -35,7 +35,7 @@ matplotlib: Data visualization.<br>
 Environment: Scripts are organized into modular Python files for clarity and reusability.<br>
 
 ## 📑 Functionality Breakdown
-1. Price Data Processing (price.py)<br>
+### Price Data Processing (price.py)<br>
 Function: process_price_data(df)<br>
 
 Cleans and parses the Exchange Date.<br>
@@ -48,7 +48,7 @@ Calculates future weekly returns for various time horizons.<br>
 Function: extract_rows_by_score(merged_df, score, tolerance=1e-5)<br>
 Filters and extracts rows from the merged DataFrame based on a specified Total_Score.<br>
 
-2. Inventory Data Processing (inventory.py)<br>
+### Inventory Data Processing (inventory.py)<br>
 Function: process_inventory_data(df)<br>
 
 Cleans and parses dates.<br>
@@ -57,14 +57,14 @@ Calculates scores based on inventory levels and changes.<br>
 Function: inventory_redacted(df)<br>
 Extracts specific columns (Week_Number, Absolute Storage Score, Delta Inventory Score) for streamlined analysis.<br>
 
-3. COT Data Processing (cot.py)<br>
+### COT Data Processing (cot.py)<br>
 Function: process_cot_data(df)<br>
 
 Cleans and parses dates.<br>
 Aggregates COT data by Year and Week_Number.<br>
 Calculates scores based on trader positions and changes.<br>
 
-4. Data Merging and Scoring (main.py)<br>
+### Data Merging and Scoring (main.py)<br>
 Function: merge_dataframes(price_df, inventory_df, cot_df)<br>
 
 Merges the processed Price, Inventory, and COT DataFrames based on Year and Week_Number.<br>
