@@ -27,7 +27,7 @@ Description: Provides weekly COT reports indicating trader positions.<br>
 Key Columns: Year, Week_Number, Bullish_Bearish_Score, Delta_Score.<br>
 
 ## 🧰 Technologies Used
-Programming Language: Python 3.x<br>
+Programming Language: Python<br>
 Libraries:<br>
 pandas: Data manipulation and analysis.<br>
 numpy: Numerical operations.<br>
