@@ -6,10 +6,10 @@ Welcome to the Crude Oil Simulation Trading Project! This project leverages hist
 The Crude Oil Simulation Trading Project is designed to implement a discretionary trading strategy based on quantitative analysis on the crude oil futures market. By processing and merging data from various sources, the project assigns scores to each trading week, enabling the identification of bullish or bearish market conditions. This comprehensive analysis facilitates informed decision-making for simulated trading scenarios.
 
 ## 🧠 Trading Strategy Used
-Objective:<br>
+### Objective:<br>
 Trade WTI Crude Oil Futures directionally with a 1-month (30 days) timeframe.<br>
 
-Key Components:<br>
+### Key Components:<br>
 1. Cost Curve (Price Support):<br>
 - Utilize price support levels from the cost curve to identify optimal entry and exit points, ensuring trades are placed at strategic price levels.<br>
 
