@@ -23,12 +23,12 @@ Trade WTI Crude Oil Futures directionally with a 1-month (30 days) timeframe.<br
 - Incorporate recent news and geopolitical developments to contextualize market conditions, enhancing the decision-making process by accounting for external factors that may influence crude oil prices.<br>
 
 ## 🛠️ Features
-Data Integration: Combines Price, Inventory, and COT data based on Year and Week_Number.<br>
-Scoring System: Assigns scores to each week based on price thresholds, inventory changes, and trader sentiment.<br>
-Total Score Calculation: Aggregates individual scores to provide an overall market sentiment indicator.<br>
-Data Filtering: Extracts specific rows based on total score values for targeted analysis.<br>
-Visualization: (Optional) Visualizes price movements and scores over time.<br>
-Automated Processing: Streamlines data cleaning, processing, and merging through modular Python scripts.<br>
+- Data Integration: Combines Price, Inventory, and COT data based on Year and Week_Number.<br>
+- Scoring System: Assigns scores to each week based on price thresholds, inventory changes, and trader sentiment.<br>
+- Total Score Calculation: Aggregates individual scores to provide an overall market sentiment indicator.<br>
+- Data Filtering: Extracts specific rows based on total score values for targeted analysis.<br>
+- Visualization: (Optional) Visualizes price movements and scores over time.<br>
+- Automated Processing: Streamlines data cleaning, processing, and merging through modular Python scripts.<br>
 
 ## 📚 Data Sources
 Price Data (Price.csv)<br>
