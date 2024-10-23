@@ -6,12 +6,12 @@ Welcome to the Crude Oil Simulation Trading Project! This project leverages hist
 The Crude Oil Simulation Trading Project is designed to analyze and simulate trading strategies in the crude oil market. By processing and merging data from various sources, the project assigns scores to each trading week, enabling the identification of bullish or bearish market conditions. This comprehensive analysis facilitates informed decision-making for simulated trading scenarios.
 
 ## 🛠️ Features
-Data Integration: Combines Price, Inventory, and COT data based on Year and Week_Number.
-Scoring System: Assigns scores to each week based on price thresholds, inventory changes, and trader sentiment.
-Total Score Calculation: Aggregates individual scores to provide an overall market sentiment indicator.
-Data Filtering: Extracts specific rows based on total score values for targeted analysis.
-Visualization: (Optional) Visualizes price movements and scores over time.
-Automated Processing: Streamlines data cleaning, processing, and merging through modular Python scripts.
+Data Integration: Combines Price, Inventory, and COT data based on Year and Week_Number.<br>
+Scoring System: Assigns scores to each week based on price thresholds, inventory changes, and trader sentiment.<br>
+Total Score Calculation: Aggregates individual scores to provide an overall market sentiment indicator.<br>
+Data Filtering: Extracts specific rows based on total score values for targeted analysis.<br>
+Visualization: (Optional) Visualizes price movements and scores over time.<br>
+Automated Processing: Streamlines data cleaning, processing, and merging through modular Python scripts.<br>
 
 ## 📚 Data Sources
 Price Data (Price.csv)<br>
