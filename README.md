@@ -2,7 +2,7 @@
 
 Welcome to the Crude Oil Simulation Trading Project! This project leverages historical crude oil data to simulate trading strategies based on price movements, inventory levels, and Commitment of Traders (COT) reports. By integrating multiple data sources and applying a scoring system, this simulation aims to provide insights into potential trading opportunities and market sentiment.
 
-📈 Project Overview
+# 📈 Project Overview
 The Crude Oil Simulation Trading Project is designed to analyze and simulate trading strategies in the crude oil market. By processing and merging data from various sources, the project assigns scores to each trading week, enabling the identification of bullish or bearish market conditions. This comprehensive analysis facilitates informed decision-making for simulated trading scenarios.
 
 🛠️ Features
