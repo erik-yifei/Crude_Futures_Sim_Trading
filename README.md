@@ -23,6 +23,7 @@ Trade WTI Crude Oil Futures directionally with a 1-month (30 days) timeframe.<br
 - Incorporate recent news and geopolitical developments to contextualize market conditions, enhancing the decision-making process by accounting for external factors that may influence crude oil prices.<br>
 
 ## 📊Visualizations
+![Crude Cost Curve](images/crude_cost_curve.jpg)
 ![Inventory Levels Trailing 5 Years](images/inventory_5yr.png)
 ![Inventory Levels Trailing 10 Years](images/inventory_10yr.png)
 
