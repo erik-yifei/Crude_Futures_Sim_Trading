@@ -23,7 +23,16 @@ Trade WTI Crude Oil Futures directionally with a 1-month (30 days) timeframe.<br
 - Incorporate recent news and geopolitical developments to contextualize market conditions, enhancing the decision-making process by accounting for external factors that may influence crude oil prices.<br>
 
 ## 📊Visualizations
+### Crude Cost Curve
+- Price floor/breakeven prices for crude production at different oil producing regions of the world.<br>
+- Analysis based on data released by the EIA and Goldman Top Projects 2023: Back to growth.<br>
 ![Crude Cost Curve](images/crude_cost_curve.jpg)
+
+### Inventory Levels Trailing 5/10 Years
+- Comprehensive Analysis: Evaluates weekly U.S. crude oil reserves data published by the Energy Information Administration (EIA).<br>
+- Demand Indicators: Lower inventory levels signify inventory draws, reflecting increased demand.<br>
+- Seasonality Insights: Utilizes 5-year and 10-year averages to identify seasonal patterns in inventory levels.<br>
+- Trend Visualization: The sinusoidal patterns observed in seasonality highlight consistent inventory reductions during summer and winter months, corresponding to heightened travel and heating demands, respectively.<br>
 ![Inventory Levels Trailing 5 Years](images/inventory_5yr.png)
 ![Inventory Levels Trailing 10 Years](images/inventory_10yr.png)
 
