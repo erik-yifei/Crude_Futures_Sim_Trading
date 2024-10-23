@@ -15,15 +15,14 @@ Automated Processing: Streamlines data cleaning, processing, and merging through
 
 # 📚 Data Sources
 Price Data (Price.csv)
-
 Description: Contains weekly closing prices and related metrics for crude oil.
 Key Columns: Year, Week_Number, Close, Open, High, Low, Bid, Ask, Exchange Date, Price Score, various weekly return columns.
-Inventory Data (Inventory.csv)
 
+Inventory Data (Inventory.csv)
 Description: Represents weekly inventory levels excluding Strategic Petroleum Reserve (SPR) stocks.
 Key Columns: Year, Week_Number, Absolute Storage Score, Delta Inventory Score.
-Commitment of Traders (COT) Data (COT.csv)
 
+Commitment of Traders (COT) Data (COT.csv)
 Description: Provides weekly COT reports indicating trader positions.
 Key Columns: Year, Week_Number, Bullish_Bearish_Score, Delta_Score.
 
