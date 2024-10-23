@@ -14,7 +14,7 @@ Visualization: (Optional) Visualizes price movements and scores over time.
 Automated Processing: Streamlines data cleaning, processing, and merging through modular Python scripts.
 
 ## 📚 Data Sources
-Price Data (Price.csv) \n
+Price Data (Price.csv)<br>
 Description: Contains weekly closing prices and related metrics for crude oil.
 Key Columns: Year, Week_Number, Close, Open, High, Low, Bid, Ask, Exchange Date, Price Score, various weekly return columns.
 
