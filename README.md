@@ -31,64 +31,54 @@ Trade WTI Crude Oil Futures directionally with a 1-month (30 days) timeframe.<br
 - Automated Processing: Streamlines data cleaning, processing, and merging through modular Python scripts.<br>
 
 ## 📚 Data Sources
-Price Data (Price.csv)<br>
-Description: Contains weekly closing prices and related metrics for crude oil.<br>
-Key Columns: Year, Week_Number, Close, Open, High, Low, Bid, Ask, Exchange Date, Price Score, various weekly return columns.<br>
+### Price Data (Price.csv)<br>
+- Description: Contains weekly closing prices and related metrics for crude oil.<br>
+- Key Columns: Year, Week_Number, Close, Open, High, Low, Bid, Ask, Exchange Date, Price Score, various weekly return columns.<br>
 
-Inventory Data (Inventory.csv)<br>
-Description: Represents weekly inventory levels excluding Strategic Petroleum Reserve (SPR) stocks.<br>
-Key Columns: Year, Week_Number, Absolute Storage Score, Delta Inventory Score.<br>
+### Inventory Data (Inventory.csv)<br>
+- Description: Represents weekly inventory levels excluding Strategic Petroleum Reserve (SPR) stocks.<br>
+- Key Columns: Year, Week_Number, Absolute Storage Score, Delta Inventory Score.<br>
 
-Commitment of Traders (COT) Data (COT.csv)<br>
-Description: Provides weekly COT reports indicating trader positions.<br>
-Key Columns: Year, Week_Number, Bullish_Bearish_Score, Delta_Score.<br>
+### Commitment of Traders (COT) Data (COT.csv)<br>
+- Description: Provides weekly COT reports indicating trader positions.<br>
+- Key Columns: Year, Week_Number, Bullish_Bearish_Score, Delta_Score.<br>
 
 ## 🧰 Technologies Used
-Programming Language: Python<br>
-Libraries:<br>
-pandas: Data manipulation and analysis.<br>
-numpy: Numerical operations.<br>
-matplotlib: Data visualization.<br>
-Environment: Scripts are organized into modular Python files for clarity and reusability.<br>
+### Programming Language: Python<br>
+### Libraries:<br>
+- pandas: Data manipulation and analysis.<br>
+- numpy: Numerical operations.<br>
+- matplotlib: Data visualization.<br>
+- Environment: Scripts are organized into modular Python files for clarity and reusability.<br>
 
 ## 📑 Functionality Breakdown
 ### Price Data Processing (price.py)<br>
 Function: process_price_data(df)<br>
-
-Cleans and parses the Exchange Date.<br>
-Aggregates data by Year and Week_Number.<br>
-Assigns a Score based on closing price thresholds:<br>
-Score = 1 if Close ≤ 68<br>
-Score = 0.5 if 68 < Close < 70<br>
-Score = 0 if Close ≥ 70<br>
-Calculates future weekly returns for various time horizons.<br>
-Function: extract_rows_by_score(merged_df, score, tolerance=1e-5)<br>
-Filters and extracts rows from the merged DataFrame based on a specified Total_Score.<br>
+- Cleans and parses the Exchange Date.<br>
+- Aggregates data by Year and Week_Number.<br>
+- Assigns a Score based on closing price thresholds:<br>
+- Score = 1 if Close ≤ 68<br>
+- Score = 0.5 if 68 < Close < 70<br>
+- Score = 0 if Close ≥ 70<br>
+- Calculates future weekly returns for various time horizons.<br>
 
 ### Inventory Data Processing (inventory.py)<br>
 Function: process_inventory_data(df)<br>
-
-Cleans and parses dates.<br>
-Aggregates inventory data by Year and Week_Number.<br>
-Calculates scores based on inventory levels and changes.<br>
-Function: inventory_redacted(df)<br>
-Extracts specific columns (Week_Number, Absolute Storage Score, Delta Inventory Score) for streamlined analysis.<br>
+- Cleans and parses dates.<br>
+- Aggregates inventory data by Year and Week_Number.<br>
+- Calculates scores based on inventory levels and changes.<br>
 
 ### COT Data Processing (cot.py)<br>
 Function: process_cot_data(df)<br>
-
-Cleans and parses dates.<br>
-Aggregates COT data by Year and Week_Number.<br>
-Calculates scores based on trader positions and changes.<br>
+- Cleans and parses dates.<br>
+- Aggregates COT data by Year and Week_Number.<br>
+- Calculates scores based on trader positions and changes.<br>
 
 ### Data Merging and Scoring (main.py)<br>
 Function: merge_dataframes(price_df, inventory_df, cot_df)<br>
-
-Merges the processed Price, Inventory, and COT DataFrames based on Year and Week_Number.<br>
-Inserts score columns adjacent to the Price Score.<br>
-Calculates a Total_Score by summing individual scores.<br>
-Function: extract_rows_by_score(merged_df, score, tolerance=1e-5)<br>
-Extracts rows with a specific Total_Score for targeted analysis.<br>
+- Merges the processed Price, Inventory, and COT DataFrames based on Year and Week_Number.<br>
+- Inserts score columns adjacent to the Price Score.<br>
+- Calculates a Total_Score by summing individual scores.<br>
 
 ## 📂 Data Integrity and Cleaning
 Handling Duplicates: The merging functions ensure that duplicate Year and Week_Number entries are aggregated by taking the mean, maintaining data consistency.<br>
