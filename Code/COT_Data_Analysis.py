@@ -104,7 +104,7 @@ def process_cot_data(df):
         axis=1
     )
     
-    # Step 15: Calculate Delta Inventory Score
+    # Step 15: Calculate Delta Score
     # If ΔLong < ΔShort, assign 1 (bullish)
     # If ΔLong > ΔShort, assign -1 (bearish)
     # If ΔLong == ΔShort, assign 0 (neutral)
@@ -203,6 +203,10 @@ print(processed_cot.head())
 
 # Optionally, save the processed data to a new CSV file
 processed_cot_clean.to_csv('processed_cot_clean.csv', index=False)
+print("Processed COT data has been saved to 'cot_processed.csv'.")
+
+# Optionally, save the processed data to a new CSV file
+processed_cot.to_csv('processed_cot.csv', index=False)
 print("Processed COT data has been saved to 'cot_processed.csv'.")
 
 
