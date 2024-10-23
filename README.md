@@ -22,6 +22,10 @@ Trade WTI Crude Oil Futures directionally with a 1-month (30 days) timeframe.<br
 4. Geo-Political Events:<br>
 - Incorporate recent news and geopolitical developments to contextualize market conditions, enhancing the decision-making process by accounting for external factors that may influence crude oil prices.<br>
 
+## 📊Visualizations
+![Inventory Levels Trailing 5 Years](images/inventory_5yr.png)
+![Inventory Levels Trailing 10 Years](images/inventory_10yr.png)
+
 ## 🛠️ Features
 - Data Integration: Combines Price, Inventory, and COT data based on Year and Week_Number.<br>
 - Scoring System: Assigns scores to each week based on price thresholds, inventory changes, and trader sentiment.<br>
