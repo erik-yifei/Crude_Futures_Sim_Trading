@@ -5,7 +5,7 @@ Welcome to the Crude Oil Simulation Trading Project! This project leverages hist
 # 📈 Project Overview
 The Crude Oil Simulation Trading Project is designed to analyze and simulate trading strategies in the crude oil market. By processing and merging data from various sources, the project assigns scores to each trading week, enabling the identification of bullish or bearish market conditions. This comprehensive analysis facilitates informed decision-making for simulated trading scenarios.
 
-🛠️ Features
+# 🛠️ Features
 Data Integration: Combines Price, Inventory, and COT data based on Year and Week_Number.
 Scoring System: Assigns scores to each week based on price thresholds, inventory changes, and trader sentiment.
 Total Score Calculation: Aggregates individual scores to provide an overall market sentiment indicator.
@@ -13,7 +13,7 @@ Data Filtering: Extracts specific rows based on total score values for targeted 
 Visualization: (Optional) Visualizes price movements and scores over time.
 Automated Processing: Streamlines data cleaning, processing, and merging through modular Python scripts.
 
-📚 Data Sources
+# 📚 Data Sources
 Price Data (Price.csv)
 
 Description: Contains weekly closing prices and related metrics for crude oil.
@@ -27,7 +27,7 @@ Commitment of Traders (COT) Data (COT.csv)
 Description: Provides weekly COT reports indicating trader positions.
 Key Columns: Year, Week_Number, Bullish_Bearish_Score, Delta_Score.
 
-🧰 Technologies Used
+# 🧰 Technologies Used
 Programming Language: Python 3.x
 Libraries:
 pandas: Data manipulation and analysis.
@@ -35,7 +35,7 @@ numpy: Numerical operations.
 matplotlib: Data visualization.
 Environment: Scripts are organized into modular Python files for clarity and reusability.
 
-📑 Functionality Breakdown
+# 📑 Functionality Breakdown
 1. Price Data Processing (price.py)
 Function: process_price_data(df)
 
@@ -74,13 +74,13 @@ Calculates a Total_Score by summing individual scores.
 Function: extract_rows_by_score(merged_df, score, tolerance=1e-5)
 Extracts rows with a specific Total_Score for targeted analysis.
 
-📂 Data Integrity and Cleaning
+# 📂 Data Integrity and Cleaning
 Handling Duplicates: The merging functions ensure that duplicate Year and Week_Number entries are aggregated by taking the mean, maintaining data consistency.
 Error Handling: Functions include checks for missing columns and data inconsistencies, raising informative errors to guide debugging.
 Data Validation: After processing, the data is validated to ensure accurate score assignments and merging.
 
-🤝 Contributing
+# 🤝 Contributing
 Contributions are welcome! If you'd like to enhance the project, feel free to open issues or submit pull requests. Whether it's adding new features, improving data processing, or enhancing documentation, your input is valuable.
 
-📜 License
+# 📜 License
 This project is licensed under the MIT License.
